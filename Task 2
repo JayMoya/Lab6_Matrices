@@ -1,0 +1,94 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.linalg as la
+
+def mat_operations(matrix1, matrix2):
+    if np.isscalar(matrix1) == True and np.isscalar(matrix2) == True:
+        print(matrix1, ' scalar')
+        print(matrix2, ' scalar')
+        print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+    elif np.isscalar(matrix1) == True:
+        print(matrix1,'scalar')
+        print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+        if matrix2.size > 0:
+            is_square = True if matrix2.shape[0] == matrix2.shape[1] else False
+            print(f'Matrix:\n{matrix2}\n\nShape:\t{matrix2.shape}\nSize:\t{matrix2.size}\nRank:\t{matrix2.ndim}\nSquare: {is_square}')
+               
+        else:
+            print('Matrix is Null')
+
+    elif np.isscalar(matrix2)==True:
+        print(matrix2,'Is a scalar')
+        print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+        if matrix1.size > 0:
+            is_square = True if matrix1.shape[0] == matrix1.shape[1] else False
+            print(f'Matrix:\n{matrix1}\nShape:\t{matrix1.shape}\nSize: \t{matrix1.size}\nRank:\t{matrix1.ndim}\nSquare: {is_square}\n')
+        else:
+            print('Matrix is Null')
+
+
+    elif np.isscalar(matrix1) == False and np.isscalar(matrix2) == False:
+        if matrix1.size > 0 and matrix2.size > 0:
+            is_square = True if matrix1.shape[0] == matrix1.shape[1] else False
+            print(f'Matrix:\n{matrix1}\n\nShape:\t{matrix1.shape}\nSize: \t{matrix1.size}\nRank:\t{matrix1.ndim}\nSquare: {is_square}\n')
+            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+            is_square = True if matrix2.shape[0] == matrix2.shape[1] else False
+            print(f'Matrix:\n{matrix2}\n\nShape:\t{matrix2.shape}\nSize: \t{matrix2.size}\nRank:\t{matrix2.ndim}\nSquare: {is_square}\n')
+        else:
+            print('Matrix is Null')
+
+    if np.isscalar(matrix1)==True:
+        Addition = matrix1 + matrix2
+        Subtraction = matrix1 - matrix2
+        Multiplication = matrix1 * matrix2
+        Division = matrix1 // matrix2
+        print(Addition)
+        print(Subtraction)
+        print(Multiplication)
+        print(Division)
+
+    elif np.isscalar(matrix2) == True:
+        Addition = matrix1 + matrix2
+        Subtraction = matrix1 - matrix2
+        Multiplication = matrix1 * matrix2
+        Division = matrix1 // matrix2
+        print(Addition)
+        print(Subtraction)
+        print(Multiplication)
+        print(Division)
+
+    elif matrix1.size == matrix2.size :
+        Addition = matrix1 + matrix2
+        Subtraction = matrix1 - matrix2
+        Multiplication = matrix1 * matrix2
+        Division = matrix1 // matrix2
+        print(Addition)
+        print(Subtraction)
+        print(Multiplication)
+        print(Division)
+
+    else:
+            print("Unequal Size")
+
+M = np.array([[7,5,5],
+              [3,6,5],
+              [4,3,5]])
+
+O = np.array([[3, 2,6],
+              [3, 4,6],
+              [5,4,6]])
+Y = 3
+A = np.array([[7, 7,7],
+              [6, 4,7],
+              [6,5,7]])
+G = 5
+
+mat_operations(M, O)
+print("======================================================================")
+mat_operations(O,A)
+print("======================================================================")
+mat_operations(O,Y)
+print("======================================================================")
+mat_operations(Y,G)
+print("======================================================================")
